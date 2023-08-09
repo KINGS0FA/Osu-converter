@@ -20,6 +20,8 @@ window = sg.Window('Osu Link Converter',
 
 while True:
     event, values = window.read()
+    if event == sg.WIN_CLOSED:
+        break
     print(event)
     print(values)
     link = values['link']
@@ -57,8 +59,5 @@ while True:
             new_link = f'https://beatconnect.io/b/{extracted_string}'
             input_text.update(value=new_link)
             message.update(value='Link converted to BeatConnect!', text_color='yellow')
-
-        case sg.WIN_CLOSED:
-            break
 
 window.close()
