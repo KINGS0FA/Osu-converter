@@ -34,7 +34,10 @@ while True:
     print(values)
     print(values['link'])
 
-    if 'beatmapsets/' not in values['link']:
+    if len(values['link']) == 0:
+        message.update(value='Enter URL!', text_color='red')
+        continue
+    elif 'beatmapsets/' not in values['link']:
         message.update(value='Invalid URL!', text_color='red')
         continue
     match event:
