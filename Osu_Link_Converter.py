@@ -8,14 +8,16 @@ button_1 = sg.Button('Nerinyan')
 button_2 = sg.Button('Chimu')
 button_3 = sg.Button('BeatConnect')
 
-message = sg.Text(key='alert')
+message = sg.Text(key='alert', font=('Helvetica', 10))
+message2 = sg.Text(key='clink', font=('Helvetica', 10))
 # convert_button = sg.Button('Convert')
 window = sg.Window('Osu Link Converter',
                    layout=[[label],
                            [input_text],
                            [button_1, button_2, button_3],
-                           [message]],
-                   size=(850, 200),
+                           [message],
+                           [message2]],
+                   size=(850, 250),
                    font=('Helvetica', 20))
 
 while True:
@@ -46,18 +48,23 @@ while True:
         case 'Nerinyan':
             webbrowser.open(f'https://nerinyan.moe/d/{extracted_string}')
             new_link = f'https://nerinyan.moe/d/{extracted_string}'
-            input_text.update(value=new_link)
-            message.update(value='Link converted to Nerinyan!', text_color='yellow')
+            input_text.update(value=link)
+            message.update(value=f'Link converted to Nerinyan!', text_color='yellow')
+            message2.update(value=new_link, text_color='Green')
         case 'Chimu':
             webbrowser.open(f'https://chimu.moe/d/{extracted_string}')
             new_link = f'https://chimu.moe/d/{extracted_string}'
-            input_text.update(value=new_link)
-            message.update(value='Link converted to Chimu!', text_color='yellow')
+            input_text.update(value=link)
+            message.update(value=f'Link converted to Chimu!', text_color='yellow')
+            message2.update(value=new_link, text_color='Green')
+
 
         case 'BeatConnect':
             webbrowser.open(f'https://beatconnect.io/b/{extracted_string}')
             new_link = f'https://beatconnect.io/b/{extracted_string}'
-            input_text.update(value=new_link)
-            message.update(value='Link converted to BeatConnect!', text_color='yellow')
+            input_text.update(value=link)
+            message.update(value=f'Link converted to BeatConnect!', text_color='yellow')
+            message2.update(value=new_link,  text_color='Green')
+
 
 window.close()
