@@ -1,5 +1,5 @@
 import streamlit as st
-import webbrowser
+from streamlit.components.v1 import html
 
 st.title('Osu Link Converter')
 
@@ -18,11 +18,12 @@ if st.button('Nerinyan'):
     elif 'beatmapsets/' not in link:
         st.markdown('<span style="color: red;">Invalid URL!</span>', unsafe_allow_html=True)
     else:
-        webbrowser.open(f'https://nerinyan.moe/d/{extracted_string}')
         new_link = f'https://nerinyan.moe/d/{extracted_string}'
         st.markdown('<span style="color: green;">Link converted to Nerinyan!</span>', unsafe_allow_html=True)
-        st.markdown(f'<span style="color: green;">{new_link}</span>', unsafe_allow_html=True)
-
+        st.markdown(f'<a href="{new_link}" target="_blank" style="color: green;">{new_link}</a>',
+                    unsafe_allow_html=True)
+        redirect_script = f'<script>window.location.href = "{new_link}";</script>'
+        st.components.v1.html(redirect_script)
 if st.button('Chimu'):
     start_marker = "beatmapsets/"
     end_marker = "#osu"
@@ -35,10 +36,14 @@ if st.button('Chimu'):
     elif 'beatmapsets/' not in link:
         st.markdown('<span style="color: red;">Invalid URL!</span>', unsafe_allow_html=True)
     else:
-        webbrowser.open(f'https://chimu.moe/d/{extracted_string}')
         new_link = f'https://chimu.moe/d/{extracted_string}'
         st.markdown('<span style="color: green;">Link converted to Chimu!</span>', unsafe_allow_html=True)
-        st.markdown(f'<span style="color: green;">{new_link}</span>', unsafe_allow_html=True)
+        st.markdown(f'<a href="{new_link}" target="_blank" style="color: green;">{new_link}</a>',
+                    unsafe_allow_html=True)
+
+        # Automatically redirect using JavaScript
+        redirect_script = f'<script>window.location.href = "{new_link}";</script>'
+        st.components.v1.html(redirect_script)
 
 if st.button('BeatConnect'):
     start_marker = "beatmapsets/"
@@ -52,7 +57,9 @@ if st.button('BeatConnect'):
     elif 'beatmapsets/' not in link:
         st.markdown('<span style="color: red;">Invalid URL!</span>', unsafe_allow_html=True)
     else:
-        webbrowser.open(f'https://beatconnect.io/b/{extracted_string}')
         new_link = f'https://beatconnect.io/b/{extracted_string}'
         st.markdown('<span style="color: green;">Link converted to BeatConnect!</span>', unsafe_allow_html=True)
-        st.markdown(f'<span style="color: green;">{new_link}</span>', unsafe_allow_html=True)
+        st.markdown(f'<a href="{new_link}" target="_blank" style="color: green;">{new_link}</a>',
+                    unsafe_allow_html=True)
+        redirect_script = f'<script>window.location.href = "{new_link}";</script>'
+        st.components.v1.html(redirect_script)
