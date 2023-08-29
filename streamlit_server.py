@@ -17,7 +17,7 @@ if st.button('Nerinyan'):
         st.markdown('<span style="color: red;">Invalid URL!</span>', unsafe_allow_html=True)
     else:
         new_link = f'https://nerinyan.moe/d/{extracted_string}'
-        st.markdown('<span style="color: yellow;">Link converted to Nerinyan!</span>', unsafe_allow_html=True)
+        st.markdown('<span style="color: green;">Link converted to Nerinyan!</span>', unsafe_allow_html=True)
         st.markdown(f'<a href="{new_link}" target="_blank" style="color: green;">{new_link}</a>', unsafe_allow_html=True)
 
 if st.button('Chimu'):
@@ -33,7 +33,7 @@ if st.button('Chimu'):
         st.markdown('<span style="color: red;">Invalid URL!</span>', unsafe_allow_html=True)
     else:
         new_link = f'https://chimu.moe/d/{extracted_string}'
-        st.markdown('<span style="color: yellow;">Link converted to Chimu!</span>', unsafe_allow_html=True)
+        st.markdown('<span style="color: green;">Link converted to Chimu!</span>', unsafe_allow_html=True)
         st.markdown(f'<a href="{new_link}" target="_blank" style="color: green;">{new_link}</a>', unsafe_allow_html=True)
 
 if st.button('BeatConnect'):
@@ -49,5 +49,5 @@ if st.button('BeatConnect'):
         st.markdown('<span style="color: red;">Invalid URL!</span>', unsafe_allow_html=True)
     else:
         new_link = f'https://beatconnect.io/b/{extracted_string}'
-        st.markdown('<span style="color: yellow;">Link converted to BeatConnect!</span>', unsafe_allow_html=True)
+        st.markdown('<span style="color: green;">Link converted to BeatConnect!</span>', unsafe_allow_html=True)
         st.markdown(f'<a href="{new_link}" target="_blank" style="color: green;">{new_link}</a>', unsafe_allow_html=True)
