@@ -1,5 +1,8 @@
 # Osu-converter
 Osu beatmap URL converter
 
-# Streamlit-Server
-https://kings0fa-osu-converter-streamlit-server-x5fjid.streamlit.app
+# Installation
+1. Download the html file
+2. open html file using any browser
+3. Copy and Paste osu beatmap links
+4. select mirror sites
