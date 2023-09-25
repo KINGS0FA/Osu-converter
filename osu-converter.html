@@ -51,7 +51,46 @@
     </div>
 
     <script>
-        // ... JavaScript code remains the same
+        document.getElementById("nerinyanButton").addEventListener("click", function () {
+            convertLink("nerinyan");
+        });
+
+        document.getElementById("chimuButton").addEventListener("click", function () {
+            convertLink("chimu");
+        });
+
+        document.getElementById("beatConnectButton").addEventListener("click", function () {
+            convertLink("beatconnect");
+        });
+
+        function convertLink(service) {
+            const osuLink = document.getElementById("osuLink").value;
+            const startMarker = "beatmapsets/";
+            const endMarker = "#osu";
+            const startIndex = osuLink.indexOf(startMarker) + startMarker.length;
+            const endIndex = osuLink.indexOf(endMarker);
+
+            if (osuLink.length === 0) {
+                document.getElementById("output").innerHTML = '<span style="color: red;">Enter URL!</span>';
+            } else if (osuLink.indexOf('beatmapsets/') === -1) {
+                document.getElementById("output").innerHTML = '<span style="color: red;">Invalid URL!</span>';
+            } else {
+                let newLink;
+                if (service === "nerinyan") {
+                    newLink = `https://nerinyan.moe/d/${osuLink.substring(startIndex, endIndex)}`;
+                } else if (service === "chimu") {
+                    newLink = `https://chimu.moe/d/${osuLink.substring(startIndex, endIndex)}`;
+                } else if (service === "beatconnect") {
+                    newLink = `https://beatconnect.io/b/${osuLink.substring(startIndex, endIndex)}`;
+                }
+
+                document.getElementById("output").innerHTML = '<span style="color: green;">Link converted!</span><br>';
+                document.getElementById("output").innerHTML += `<a href="${newLink}" target="_blank" style="color: green;">${newLink}</a>`;
+
+                // Automatically redirect using JavaScript
+                window.location.href = newLink;
+            }
+        }
     </script>
 
 </body>
